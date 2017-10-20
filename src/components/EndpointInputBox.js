@@ -2,21 +2,47 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 
 class EndpointInputBox extends Component {
+
     render() {
+        function geturlParamSection() {
+            return ( 
+                <div className="input-parameter">
+                <label className="data-entry-label" htmlFor="parameter">Url Parameter: </label>
+                <input className="data-entry-input" name="parameter" type="text" placeholder=""></input>
+                </div>
+            )
+        }
+        function getbodyParamSection() {
+            return ( 
+                <div className="input-parameter">
+                <label className="data-entry-label" htmlFor="body">Body data: </label>
+                <input className="data-entry-input" name="body-data" type="text" placeholder=""></input>
+                </div>
+            )
+        }
+      
+        var urlParamSection = this.props.urlParam ?  geturlParamSection() : null
+        var bodyParamSection = this.props.bodyParam ?  getbodyParamSection() : null
+
+
         return (
             <div className="EndpointInputBox">
-                <p className="endpoint-tittle">
-                    Endpoint: /parse/functions/allFriends
+                <div className="endpoint-wrapper">
+                <p className="endpoint-type">
+                {this.props.enpointType} 
                 </p>
-                <div className="url-parameter">
-                    <label for="parameter">Url Parameter: </label>
-                    <input name="parameter" type="text" className="data-entry" placeholder="Enter a parameter to add to url"></input>
+                <p className="endpoint-tittle">
+                    {this.props.endpoint}
+                </p>
                 </div>
-                <div className="body-data">
-                    <label for="body">Body data: </label>
-                    <input name="body-data" type="text" className="data-entry" placeholder="Enter a parameter as body data"></input>
-                </div>                
-                <Button> Test Endpoint </Button>
+                <div className="input-wrapper">
+                {urlParamSection}
+                {bodyParamSection}
+                </div>
+
+                <div className="test-button">
+                    <Button> Test Endpoint </Button>
+                </div>             
             </div>
         )
     }
