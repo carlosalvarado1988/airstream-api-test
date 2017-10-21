@@ -41,7 +41,7 @@ class EndpointInputBox extends Component {
                 </div>
 
                 <div className="test-button">
-                    <Button> Test Endpoint </Button>
+                    <Button bsStyle="success"  bsSize="xsmall" > Test Endpoint </Button>
                 </div>             
             </div>
         )
