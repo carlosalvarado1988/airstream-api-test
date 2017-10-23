@@ -35,7 +35,7 @@ class ResultsBox extends Component {
                  readOnly
                 />
                 <div className="clear-button">
-                <Button bsStyle="primary" onClick={this.clearData}> Clear Results </Button>
+                <Button bsStyle="primary" bsSize="small" onClick={this.clearData}> Clear Results </Button>
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
 .App {
   display: block;
   margin: 1px auto 0;
-  max-width: 75%;
+  max-width: 50%;
   text-align: center;
   font-family: lato, sans-serif;
   background-color: beige;
@@ -33,6 +33,7 @@
 .EndpointInputBox {
   width: 80%;
   border-style: solid;
+  border-color: lightgray;
   border-width: 1px;
   margin: 5px auto;
 }

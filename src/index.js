@@ -11,8 +11,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import './index.css'
 
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(
+    <Provider store={store}>
         <App />
-    </Provider>, document.getElementById('root'))
+    </Provider>, 
+    document.getElementById('root')
+)
 registerServiceWorker();
 
