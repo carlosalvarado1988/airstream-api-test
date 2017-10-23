@@ -7,10 +7,11 @@ class EnpointsList extends Component {
         var list = this.props.endpointsList.map((endpoint, idx) => {
             return <li key={idx}> 
                         <EndpointInputBox 
+                            name={endpoint.name}
                             endpoint={endpoint.endpoint} 
                             endpointType={endpoint.type}
-                            urlParam={endpoint.url}
-                            bodyParam={endpoint.body}
+                            uriParams={endpoint.uri}
+                            body={endpoint.body}
                             handleFetch={this.props.handleFetch}
                         /> 
                    </li>

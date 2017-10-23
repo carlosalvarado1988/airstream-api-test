@@ -6,23 +6,26 @@ class EndpointInputBox extends Component {
         super(props)
         this.handleFetch = this.handleFetch.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.getUriParamsSection = this.getUriParamsSection.bind(this)
+
         this.state = {
-            urlData: '',
-            bodyData: ''
+            userID: '',
+            value: '',
+            body: ''
         }
       }
 
     handleFetch() {
         let endpointType = this.props.endpointType
         let endpoint = this.props.endpoint
-        let urlData = this.state.urlData
-        let bodyData = this.state.bodyData
+        let uriOneData = this.state.uriOneData
+        let uriTwoData = this.state.uriTwoData
 
-        if (urlData) {
-            endpoint = endpoint + '/' + urlData
+        if (uriOneData || uriTwoData) {
+            endpoint = endpoint + '/' + uriOneData
         }
 
-        this.props.handleFetch(endpointType, endpoint, bodyData)
+        this.props.handleFetch(endpointType, endpoint)
     }
 
     handleChange (evt) {
@@ -31,28 +34,35 @@ class EndpointInputBox extends Component {
         })
     }
 
-    geturlParamSection() {
-        return ( 
-            <div className="input-parameter">
-            <label className="data-entry-label" htmlFor="parameter">Url Parameter: </label>
-            <input 
-             className="data-entry-input" 
-             name="urlData" 
-             type="text" 
-             placeholder=""
-             onChange={this.handleChange}
-             />
-            </div>
-        )
+    getUriParamsSection() {
+        var uriParamsInputs = this.props.uriParams.map((parameter) => {
+            return ( 
+                <div className="input-parameter">
+                    <label className="data-entry-label" htmlFor="UriOneParameter">
+                        {parameter}: 
+                    </label>
+                    <input 
+                    className="data-entry-input" 
+                    name={parameter} 
+                    type="text" 
+                    placeholder=""
+                    onChange={this.handleChange}
+                    />
+                </div>
+            ) 
+        })
+       return uriParamsInputs
     }
 
-    getbodyParamSection() {
+    getBodyParamSection() {
         return ( 
             <div className="input-parameter">
-            <label className="data-entry-label" htmlFor="body">Body data: </label>
+            <label className="data-entry-label" htmlFor="UriTwoParameter">
+                body:
+            </label>
             <input 
              className="data-entry-input" 
-             name="bodyData" 
+             name="body" 
              type="text" 
              placeholder=""
              onChange={this.handleChange}
@@ -62,26 +72,33 @@ class EndpointInputBox extends Component {
     }
 
     render() {
-        var urlParamSection = this.props.urlParam ?  this.geturlParamSection() : null
-        var bodyParamSection = this.props.bodyParam ?  this.getbodyParamSection() : null
+        var uriParamsInputs = this.props.uriParams ?  this.getUriParamsSection() : null
+        var bodyParamSection = this.props.body ?  this.getBodyParamSection() : null
 
         return (
             <div className="EndpointInputBox">
+                <p className="endpoint-name">
+                    {this.props.name}   
+                </p>
                 <div className="endpoint-wrapper">
                 <p className="endpoint-type">
-                {this.props.endpointType} 
+                    {this.props.endpointType} 
                 </p>
                 <p className="endpoint-tittle">
                     {this.props.endpoint}
                 </p>
                 </div>
                 <div className="input-wrapper">
-                {urlParamSection}
+                {uriParamsInputs}
                 {bodyParamSection}
                 </div>
 
                 <div className="test-button">
-                    <Button bsStyle="success"  bsSize="xsmall" onClick={this.handleFetch}> Test Endpoint </Button>
+                    <Button 
+                     bsStyle="success"  
+                     bsSize="xsmall" 
+                     onClick={this.handleFetch}> Test 
+                    </Button>
                 </div>             
             </div>
         )
