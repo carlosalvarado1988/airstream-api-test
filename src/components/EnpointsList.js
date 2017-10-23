@@ -4,14 +4,14 @@ import EndpointInputBox from './EndpointInputBox';
 class EnpointsList extends Component {
 
     render() {
-        console.log('this.props.enpointsList ', this.props.enpointsList)
-        var list = this.props.enpointsList.map((endpoint, idx) => {
+        var list = this.props.endpointsList.map((endpoint, idx) => {
             return <li key={idx}> 
                         <EndpointInputBox 
                             endpoint={endpoint.endpoint} 
-                            enpointType={endpoint.enpointType}
+                            endpointType={endpoint.endpointType}
                             urlParam={endpoint.requiresUrlParam}
                             bodyParam={endpoint.requiresBodyParam}
+                            handleFetch={this.props.handleFetch}
                         /> 
                    </li>
         })

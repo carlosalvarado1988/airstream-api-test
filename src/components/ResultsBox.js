@@ -2,9 +2,24 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 
 class ResultsBox extends Component {
-    constructor(){
-        super()
-        this.results = {key: 'values'}
+    constructor(props) {
+        super(props)
+        this.clearData = this.clearData.bind(this)
+        this.state = {
+            data: ''
+        }
+    }
+
+    componentWillReceiveProps (props) {
+        this.setState({
+            data: JSON.stringify(props.apiResponses.response)
+        })
+    }
+
+    clearData() {
+        this.setState({
+            data: ''
+        })
     }
 
     render() {
@@ -12,9 +27,15 @@ class ResultsBox extends Component {
             <div className="ResultsBox">
                 <p className="results-title">
                 </p>
-                <input className="results-area" name="results"  type="text-area" value={this.results} readOnly />
+                <textarea 
+                 className="results-area" 
+                 name="results"
+                 wrap='soft'
+                 value={this.state.data}
+                 readOnly
+                />
                 <div className="clear-button">
-                <Button bsStyle="primary" > Clear Results </Button>
+                <Button bsStyle="primary" onClick={this.clearData}> Clear Results </Button>
                 </div>
             </div>
         )
