@@ -1,24 +1,24 @@
 export default function() {
     return [
         {endpoint:'/parse/functions/allFriends',
-        endpointType: 'POST',
-        requiresUrlParam: true,
-        requiresBodyParam: true
+        type: 'POST',
+        url: true,
+        body: true
         },
         {endpoint:'/parse/GET/allFriends',
-        endpointType: 'GET',
-        requiresUrlParam: false,
-        requiresBodyParam: true
+        type: 'GET',
+        url: false,
+        body: true
         },
         {endpoint:'/parse/PUT/allFriends',
-        endpointType: 'PUT',
-        requiresUrlParam: true,
-        requiresBodyParam: false
+        type: 'PUT',
+        url: true,
+        body: false
         },
         {endpoint:'/parse/ABC/allFriends',
-        endpointType: 'POST',
-        requiresUrlParam: false,
-        requiresBodyParam: false
+        type: 'POST',
+        url: false,
+        body: false
         }
       ]
 }

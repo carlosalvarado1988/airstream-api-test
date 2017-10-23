@@ -23,11 +23,18 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Airstream API Tester</h1>
         </header>
-          <EnpointsList 
+        <div className="Content">
+        <div className="left">
+        <EnpointsList 
             endpointsList={this.props.endpoints}
             handleFetch={this.handleFetch}
           />
+        </div>
+        <div className="rigth">
           <ResultsBox apiResponses={this.props.apiResponses}/>
+        </div>
+        </div>
+        
       </div>
     );
   }

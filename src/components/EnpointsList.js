@@ -8,9 +8,9 @@ class EnpointsList extends Component {
             return <li key={idx}> 
                         <EndpointInputBox 
                             endpoint={endpoint.endpoint} 
-                            endpointType={endpoint.endpointType}
-                            urlParam={endpoint.requiresUrlParam}
-                            bodyParam={endpoint.requiresBodyParam}
+                            endpointType={endpoint.type}
+                            urlParam={endpoint.url}
+                            bodyParam={endpoint.body}
                             handleFetch={this.props.handleFetch}
                         /> 
                    </li>
