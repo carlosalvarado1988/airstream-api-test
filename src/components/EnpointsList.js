@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import EndpointInputBox from './EndpointInputBox';
+import React, { Component } from 'react'
+import EndpointInputBox from './EndpointInputBox'
 
 class EnpointsList extends Component {
 
@@ -27,4 +27,4 @@ class EnpointsList extends Component {
     }
 }
 
-export default EnpointsList;
+export default EnpointsList
