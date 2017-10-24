@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import EndpointInputBox from './EndpointInputBox';
+import React, { Component } from 'react'
+import EndpointInputBox from './EndpointInputBox'
 
 class EnpointsList extends Component {
 
@@ -7,10 +7,11 @@ class EnpointsList extends Component {
         var list = this.props.endpointsList.map((endpoint, idx) => {
             return <li key={idx}> 
                         <EndpointInputBox 
+                            name={endpoint.name}
                             endpoint={endpoint.endpoint} 
-                            endpointType={endpoint.endpointType}
-                            urlParam={endpoint.requiresUrlParam}
-                            bodyParam={endpoint.requiresBodyParam}
+                            endpointType={endpoint.type}
+                            uriParams={endpoint.uri}
+                            body={endpoint.body}
                             handleFetch={this.props.handleFetch}
                         /> 
                    </li>
@@ -26,4 +27,4 @@ class EnpointsList extends Component {
     }
 }
 
-export default EnpointsList;
+export default EnpointsList
